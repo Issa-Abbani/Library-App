@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
   <script src="./script.js" defer></script>
   <title>Library Management System</title>
 </head>
 <body>
-  
+  <header>
+    <h1>Your Library</h1>
+  </header>
+
+  <main>
+    <nav>
+      <button id="add-book-btn">Add Book</button>
+      <button id="show-read-btn">Show Read Books</button>
+      <button id="show-unread-btn">Show Unread Books</button>
+    </nav>
+
+    <section>
+      <table border="1">
+        <thead>
+          <tr>
+            <th scope="col">Book ID</th>
+            <th scope="col">Book Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Pages</th>
+            <th scope="col">Read Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Example ID</td>
+            <td>Example Title</td>
+            <td>Example Author</td>
+            <td>123</td>
+            <td>Unread</td>
+            <td><button class="remove-btn">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 </body>
 </html>
