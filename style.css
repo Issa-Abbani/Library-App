@@ -1,0 +1,98 @@
+:root {
+  /* Primary colors */
+  --primary-dark: #2f2f30;   /* Dark floor tone */
+  --primary-light: #ece6d9;  /* Light book tone */
+  --primary-accent: #c0392b; /* Bold red spine accent */
+
+  /* Secondary tones */
+  --secondary-green: #3c6e71;  /* Deep teal-green books */
+  --secondary-yellow: #f1c40f; /* Bright yellow spine accent */
+  --secondary-blue: #34495e;   /* Navy blue tones from shelves */
+
+  /* Neutrals */
+  --neutral-white: #fdfdfd;
+  --neutral-gray: #555555;
+  --neutral-light-gray: #cccccc;
+}
+body{
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+  background: url(Assets/Background.jpeg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+header{
+  height: 10vh;
+  width: 100%;
+  background: linear-gradient(135deg, #4CAF50, #81C784);
+  position: fixed;
+  right: 0%;
+  left: 0%;
+  top: 0%;
+  padding: 1rem;
+}
+
+main{
+  margin-top: 8rem;
+}
+
+nav{
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+main > nav > button {
+  background-color: var(--secondary-green);
+  color: white;
+  border-radius: 0%;
+  border: 1px;
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex: 1fr 0 100px;
+  gap: clamp(0.5rem, 1rem, 2rem);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+main > nav > button:hover {
+  scale: 1.1;
+  box-shadow: 0 2px 5px var(--secondary-green);
+}
+
+.icon{
+  width: 1rem;
+  height: 1rem;
+}
+#check-icon{
+  color: red;
+}
+
+table {
+  width: 70%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  border: 2px solid #444;
+  padding: 0.75rem;
+  text-align: left;
+}
+tr > * {
+  text-align: center;
+}
+
+.remove-btn > img {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
