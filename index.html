@@ -15,6 +15,49 @@
     <h1>Your Library</h1>
   </header>
 
+  <aside>
+    <div class="title-form">
+      <h3>Add Your Book:</h3>
+        <svg xmlns="http://www.w3.org/2000/svg" id="Outline" class="icon exit-form" viewBox="0 0 24 24" width="512" height="512">
+  
+          <path d="M16,8a1,1,0,0,0-1.414,0L12,10.586,9.414,8A1,1,0,0,0,8,9.414L10.586,12,8,14.586A1,1,0,0,0,9.414,16L12,13.414,14.586,16A1,1,0,0,0,16,14.586L13.414,12,16,9.414A1,1,0,0,0,16,8Z" fill="red" />
+
+          <path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z" fill="red"/>
+        </svg>
+    </div>
+    <form>
+      <fieldset>
+        <div class="form-elem">
+          <label for="book-title">Title</label>
+          <input type="text" name="title" placeholder="Book Title" id="book-title" required maxlength="40" minlength="1"/>
+        </div>
+
+        <div class="form-elem">
+          <label for="book-author">Author</label>
+          <input type="text" name="author" placeholder="Book Author" id="book-author" required maxlength="40" minlength="1"/>
+        </div>
+
+        <div class="form-elem">
+          <label for="book-page">Page Number</label>
+          <input type="number" name="pages" placeholder="Book Page Number" id="book-page" required maxlength="40" minlength="1"/>
+        </div>
+
+        <div class="form-elem">
+          <label for="book-status">Read/Unread</label>
+          <select name="status" id="book-status">
+            <option value="read">Read</option>
+            <option value="unread">Unread</option>
+          </select>
+        </div>
+
+      </fieldset>
+    </form>
+    <div class="add-cntr">
+      <button type="submit" id="add-book">Add Book</button>
+    </div>
+    
+  </aside>
+
   <main>
     <nav>
       <button id="add-book-btn">

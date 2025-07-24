@@ -96,3 +96,66 @@ tr > * {
   height: 1.2rem;
   cursor: pointer;
 }
+
+aside{
+  position: absolute;
+  background-color: var(--neutral-white);
+  width: 30vw;
+  height: 60vh;
+  border-radius: 5%;
+  padding: 0;
+  left: 35%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.684);
+  display: none;
+}
+
+aside > .title-form {
+  background-color: var(--secondary-green);
+  right: 0%;
+  left: 0%;
+  top: 0%;
+  padding: 0.5rem;
+  border-radius: 5% 5% 5% 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--neutral-white);
+}
+
+.exit-form{
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+fieldset{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-elem{
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+}
+
+#add-book{
+  padding: 0.5rem 3rem;
+  background: var(--secondary-green);
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+#add-book:hover{
+  scale: 1.1;
+  box-shadow: 0 2px 5px var(--secondary-green);
+}
+.add-cntr{
+  display: flex;
+  justify-content: center;
+}
+
+
