@@ -14,8 +14,12 @@
   --neutral-gray: #555555;
   --neutral-light-gray: #cccccc;
 }
-body{
+
+*{
   box-sizing: border-box;
+}
+
+body{
   font-family: "Roboto Condensed", sans-serif;
   background: url(Assets/Background.jpeg);
   background-attachment: fixed;
@@ -32,7 +36,7 @@ header{
   right: 0%;
   left: 0%;
   top: 0%;
-  padding: 1rem;
+  padding-left: 1rem;
 }
 
 main{
@@ -78,7 +82,8 @@ table {
   width: 70%;
   border-collapse: collapse;
   margin-top: 1rem;
-  background-color: #fff;
+  background-color: var(--primary-light);
+  color: black;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -91,10 +96,15 @@ tr > * {
   text-align: center;
 }
 
+.remove-btn > img:hover{
+  scale: 1.1;
+}
+
 .remove-btn > img {
   width: 1.2rem;
   height: 1.2rem;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 aside{
@@ -131,6 +141,7 @@ aside > .title-form {
 fieldset{
   margin-top: 1rem;
   margin-bottom: 2rem;
+  border: none;
 }
 
 .form-elem{
@@ -157,5 +168,200 @@ fieldset{
   display: flex;
   justify-content: center;
 }
+
+.confirm-deletion{
+  position: relative;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-green);
+  width: 30vw;
+  height: 15vh;
+  border-radius: 10px;
+  padding: 1rem;
+  left: 35%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.684);
+  display: none;
+}
+
+.confirm-deletion > h3{
+  color: white;
+}
+.choice{
+  display: flex;
+  justify-content: center;
+}
+.choice > button{
+  padding: 0.3rem 2rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  color: white;
+}
+.choice > button:hover{
+  scale: 1.1;
+}
+
+#yes-del{
+  background-color: rgb(168, 0, 0);
+}
+#yes-del:hover{
+  box-shadow: 0 2px 8px rgba(168, 0, 0, 0.741);
+}
+
+.confirm-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exit-del {
+  width: 2rem;
+  height: 2rem;
+}
+
+.exit-del{
+  position: absolute;
+  right: 3%;
+  cursor: pointer;
+}
+
+@media (min-width:769px) and (max-width:1000px) {
+  aside{
+      width: 40vw;
+      height: 35vh;
+      left: 30%;
+    }
+  .confirm-deletion {
+    height: auto;
+    width: 50%;
+    padding: 1rem;
+    left: 25%;
+  }
+
+  .confirm-title {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .choice {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .choice > button {
+    width: 45%;
+    font-size: 0.9rem;
+  }
+}
+
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  header {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main > nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  main > nav > button {
+    flex: none;
+    width: 90%;
+    margin: 0.5rem auto;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  table {
+    width: 95%;
+    font-size: 0.8rem;
+    margin: 1rem auto;
+  }
+
+  th, td {
+    padding: 0.5rem;
+  }
+
+  aside,
+  .confirm-deletion {
+    width: 90vw;
+    left: 5%;
+    right: 5%;
+  }
+
+  aside {
+    height: auto;
+    border-radius: 10px;
+  }
+
+  aside > .title-form {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .form-elem {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+    padding: 0 1rem;
+  }
+
+  .form-elem input,
+  .form-elem select {
+    width: 100%;
+  }
+
+  .add-cntr {
+    margin-bottom: 1rem;
+  }
+
+  #add-book {
+    width: 80%;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .confirm-deletion {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .confirm-title {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .choice {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .choice > button {
+    width: 45%;
+    font-size: 0.9rem;
+  }
+}
+
 
 
