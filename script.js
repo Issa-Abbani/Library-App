@@ -4,6 +4,27 @@ const addBookTab = document.querySelector('aside');
 const closeBookTab = document.querySelector('.exit-form');
 const addBookInput = document.querySelectorAll('.form-elem > input');
 
+
+//save in JSON form
+function saveLibrary() {
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
+
+//Load JSON data
+function loadLibrary() {
+  const stored = localStorage.getItem('myLibrary');
+  if (stored) {
+    const parsed = JSON.parse(stored);
+    myLibrary.length = 0;
+    parsed.forEach(book => {
+      myLibrary.push(new Book(book.bID, book.title, book.author, book.pages, book.read_stat));
+    });
+  }
+}
+
+
+
 // Toggling the add book tab
 function toggleAddTab(){
   addBookBtn.addEventListener("click", ()=>{
@@ -20,6 +41,10 @@ function toggleAddTab(){
     }
   })
 }
+
+// function toggleDeleteTab(){
+
+// }
 
 //toggling the add book button in the add book tab
 function addBookButton(){
@@ -65,6 +90,8 @@ function addBookToLibrary() {
   // Push it to the array
   myLibrary.push(newBook);
 
+  saveLibrary();
+
   renderLibrary();
 
 }
@@ -103,6 +130,10 @@ function renderLibrary(){
 
 
 // Calling functions
+loadLibrary();
+
+renderLibrary();
+
 
 toggleAddTab();
 
