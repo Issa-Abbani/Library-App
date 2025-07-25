@@ -28,6 +28,16 @@ body{
   background-repeat: no-repeat;
 }
 
+body.background-locked {
+  pointer-events: none;
+}
+
+body.background-locked .confirm-deletion,
+body.background-locked aside.active-add{
+  pointer-events: all;
+}
+
+
 header{
   height: 10vh;
   width: 100%;
@@ -119,10 +129,6 @@ aside{
   display: none;
 }
 
-aside.active-add {
-  display: block;
-}
-
 aside > .title-form {
   background-color: var(--secondary-green);
   right: 0%;
@@ -189,6 +195,12 @@ fieldset{
   display: none;
 }
 
+
+aside.active-add,
+.active-del {
+  display: block;
+}
+
 .confirm-deletion > h3{
   color: white;
 }
@@ -218,6 +230,10 @@ fieldset{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.confirm-title > h3{
+  color: white;
 }
 
 .exit-del {
