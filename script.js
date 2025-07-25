@@ -6,6 +6,8 @@ const closeBookTab = document.querySelector('.exit-form');
 const addBookInput = document.querySelectorAll('.form-elem > input');
 const deleteBtns = document.querySelectorAll('del-btn-icon');
 const exitDelBtn = document.querySelector('.exit-del');
+const filterRead = document.getElementById('show-read-btn');
+const filterUnread = document.getElementById('show-unread-btn');
 
 
 //save in JSON form
@@ -83,7 +85,7 @@ function toggleDeleteTab() {
         if (index > -1) {
           myLibrary.splice(index, 1);
           saveLibrary();
-          renderLibrary();
+          renderLibrary(myLibrary);
         }
 
         delTab.classList.remove('active-del');
@@ -102,8 +104,6 @@ function addBookButton(){
     });
 
 }
-
-
 
 // Book object constructor
 function Book(bID, title, author, pages, read_stat) {
@@ -140,21 +140,21 @@ function addBookToLibrary() {
 
   saveLibrary();
 
-  renderLibrary();
+  renderLibrary(myLibrary);
 
 }
 
 
 // rendering the books in the myLibrary array into the page
-function renderLibrary(){
-      // Update the DOM - add a row to the table body
+function renderLibrary(myLib){
+    // Update the DOM - add a row to the table body
     const tbody = document.querySelector('main section table tbody');
     tbody.innerHTML = '';
 
 
   // iterate over the table array and print it into the DOM
-    myLibrary.forEach(book => {
-      const tr = document.createElement('tr');
+    myLib.forEach(book => {
+    const tr = document.createElement('tr');
 
       tr.innerHTML = `
         <td>${book.bID}</td>
@@ -173,16 +173,51 @@ function renderLibrary(){
     document.getElementById('book-author').value = '';
     document.getElementById('book-page').value = '';
     document.getElementById('book-status').value = 'read';
+}
 
+function filterReadBooks(){
+  let isFilterActive = false;
+  filterRead.addEventListener("click", ()=>{
+      if(!isFilterActive){
+        filterRead.classList.add('active-filter');
+        const readBooks = myLibrary.filter(book => book.read_stat == 'read');
+        renderLibrary(readBooks);
+        isFilterActive = true;
+      }else{
+        filterRead.classList.remove('active-filter');
+        isFilterActive = false;
+        renderLibrary(myLibrary);
+      }
+  });
+}
+
+function filterUnreadBooks(){
+  let isFilterActive = false;
+  filterUnread.addEventListener("click", ()=>{
+      if(!isFilterActive){
+        filterUnread.classList.add('active-filter');
+        const unreadBooks = myLibrary.filter(book => book.read_stat == 'unread');
+        renderLibrary(unreadBooks);
+        isFilterActive = true;
+      }else{
+        filterUnread.classList.remove('active-filter');
+        isFilterActive = false;
+        renderLibrary(myLibrary);
+      }
+  });
 }
 
 
 // Calling functions
 loadLibrary();
 
-renderLibrary();
+renderLibrary(myLibrary);
 
 toggleAddTab();
+
+filterReadBooks();
+
+filterUnreadBooks()
 
 addBookButton();
 

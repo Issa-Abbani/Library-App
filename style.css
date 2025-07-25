@@ -247,6 +247,11 @@ aside.active-add,
   cursor: pointer;
 }
 
+.active-filter{
+  background-color: rgb(212, 100, 1);
+  scale: 1.1;
+}
+
 @media (min-width:769px) and (max-width:1000px) {
   body{
     min-height: 100dvh;
