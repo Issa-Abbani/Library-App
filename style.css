@@ -228,6 +228,10 @@ fieldset{
 }
 
 @media (min-width:769px) and (max-width:1000px) {
+  body{
+    min-height: 100dvh;
+    background-size: cover;
+  }
   aside{
       width: 40vw;
       height: 35vh;
