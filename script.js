@@ -10,6 +10,7 @@ const filterRead = document.getElementById('show-read-btn');
 const filterUnread = document.getElementById('show-unread-btn');
 
 
+
 //save in JSON form
 function saveLibrary() {
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
@@ -175,37 +176,45 @@ function renderLibrary(myLib){
     document.getElementById('book-status').value = 'read';
 }
 
-function filterReadBooks(){
-  let isFilterActive = false;
-  filterRead.addEventListener("click", ()=>{
-      if(!isFilterActive){
-        filterRead.classList.add('active-filter');
-        const readBooks = myLibrary.filter(book => book.read_stat == 'read');
-        renderLibrary(readBooks);
-        isFilterActive = true;
-      }else{
-        filterRead.classList.remove('active-filter');
-        isFilterActive = false;
-        renderLibrary(myLibrary);
-      }
+
+
+function filterReadBooks() {
+  let activeFilter = null;
+
+  filterRead.addEventListener("click", () => {
+    if (activeFilter !== 'read') {
+      activeFilter = 'read';
+      filterRead.classList.add('active-filter');
+      filterUnread.classList.remove('active-filter');
+      filterUnread.disabled = true;
+      const readBooks = myLibrary.filter(book => book.read_stat === 'read');
+      renderLibrary(readBooks);
+    } else {
+      activeFilter = null;
+      filterRead.classList.remove('active-filter');
+      filterUnread.disabled = false;
+      renderLibrary(myLibrary);
+    }
+  });
+
+  filterUnread.addEventListener("click", () => {
+    if (activeFilter !== 'unread') {
+      activeFilter = 'unread';
+      filterUnread.classList.add('active-filter');
+      filterRead.classList.remove('active-filter');
+      filterRead.disabled = true;
+      const unreadBooks = myLibrary.filter(book => book.read_stat === 'unread');
+      renderLibrary(unreadBooks);
+    } else {
+      activeFilter = null;
+      filterUnread.classList.remove('active-filter');
+      filterRead.disabled = false;
+      renderLibrary(myLibrary);
+    }
   });
 }
 
-function filterUnreadBooks(){
-  let isFilterActive = false;
-  filterUnread.addEventListener("click", ()=>{
-      if(!isFilterActive){
-        filterUnread.classList.add('active-filter');
-        const unreadBooks = myLibrary.filter(book => book.read_stat == 'unread');
-        renderLibrary(unreadBooks);
-        isFilterActive = true;
-      }else{
-        filterUnread.classList.remove('active-filter');
-        isFilterActive = false;
-        renderLibrary(myLibrary);
-      }
-  });
-}
+
 
 
 // Calling functions
@@ -217,7 +226,6 @@ toggleAddTab();
 
 filterReadBooks();
 
-filterUnreadBooks()
 
 addBookButton();
 
