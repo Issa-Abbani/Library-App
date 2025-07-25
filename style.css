@@ -119,6 +119,10 @@ aside{
   display: none;
 }
 
+aside.active-add {
+  display: block;
+}
+
 aside > .title-form {
   background-color: var(--secondary-green);
   right: 0%;
