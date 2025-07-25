@@ -51,11 +51,14 @@ function toggleAddTab(){
 function toggleDeleteTab() {
   const tableBody = document.querySelector('main section table tbody');
   const delTab = document.querySelector('.confirm-deletion');
+  const confirmDel = document.querySelector('#yes-del');
+  let bookToDeleteId = null;
 
   exitDelBtn.addEventListener("click", ()=>{
       if(delTab.classList.contains('active-del')){
         delTab.classList.remove('active-del');
         body.classList.remove('background-locked');
+        bookToDeleteId = null;
       }
   })
 
@@ -63,15 +66,30 @@ function toggleDeleteTab() {
     const clicked = e.target;
 
     if (clicked && clicked.id === 'del-btn-icon') {
-      // OPEN your tab or handle whatever logic you want here
-      console.log('Delete button clicked:', clicked.closest('tr'));
-      
+      const tr = clicked.closest('tr');
+      const bookId = tr.querySelector('td').textContent;
 
+      bookToDeleteId = bookId;
+      
+      
       if(!(delTab.classList.contains('active-del'))){
         delTab.classList.add('active-del');
         body.classList.add('background-locked');
       }
 
+      confirmDel.addEventListener("click", () =>{
+
+        const index = myLibrary.findIndex(book => book.bID === bookToDeleteId);
+        if (index > -1) {
+          myLibrary.splice(index, 1);
+          saveLibrary();
+          renderLibrary();
+        }
+
+        delTab.classList.remove('active-del');
+        body.classList.remove('background-locked');
+        bookToDeleteId = null;
+      }, {once : true});
     }
   });
 }
